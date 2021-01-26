@@ -243,17 +243,32 @@ What to consider:
 # Extracting a substring in Google Sheets using regex
 
 > ## Extracting a substring in Google Sheets using regex
-> 1. Export and unzip the [2017 Public Library Survey](https://github.com/LibraryCarpentry/lc-data-intro/blob/gh-pages/files/PLS_FY17.zip) (originally from the IMLS data site) as a CSV file.
-> 2. Upload the CSV file to Google Sheets and open as a Google Sheet if it doesn't do this by default.
-> 3. Look in the `ADDRESS` column and notice that the values contain the latitude and longitude in parenthesis after the library address.
-> 4. Construct a regular expression to match and extract the latitude and longitude into a new column named 'latlong'. HINT: Look up the function `REGEXEXTRACT` in Google Sheets. That function expects the first argument to be a string (a cell in `ADDRESS` column) and a quoted regular expression in the second.
+> 1. Export and unzip the [2017 Public Library Survey](
+https://github.com/LibraryCarpentry/lc-data-intro/blob/gh-pages/files/PLS_FY17.zip)
+>  (originally from the IMLS data site) as a CSV file.
+> 2. Upload the CSV file to [Google Sheets](https://docs.google.com/spreadsheets/u/0/)
+> and open as a Google Sheet if it doesn't do this by default.
+> 3. Look in the `ADDRESS` column and notice that the values contain the latitude and longitude
+> in parentheses after the library address.
+> 4. Construct a regular expression to match and extract the latitude and longitude into a new
+> column named 'LATLONG'. HINT: Look up the function `REGEXEXTRACT` in Google Sheets.
+> That function expects the first argument to be a string (a cell in `ADDRESS` column)
+> and a quoted regular expression in the second.
 >
->> ## Solution
-> > This is one way to solve this challenge. You might have found others. Inside the cell you can use the below to extract the latitude and longitude into a single cell. You can then copy the formula down to the end of the column.
->>~~~
-> > =REGEXEXTRACT(G2,"\d+\.\d+, -?\d+\.\d+")
-> >~~~
-> >{: .source}
-> > Latitude and longitude are in decimal degree format so here we are using `\d+` for a one or more digit match followed by a period `\.`. Note we had to escape the period using `\`. After the period we look for one or more digits  `\d+` again followed by a literal comma `,`. We then have a literal space match followed by an optional dash `-` (there are few `0.0` latitude/longitudes that are probably errors, but we'd want to retain so we can deal with them). We then repeat our `\d+\.\d+` we used for the latitude match.
+> > ## Solution
+> > This is one way to solve this challenge. You might have found others.
+> > Inside the cell you can use the below to extract the latitude and longitude into a single cell.
+> > You can then copy the formula down to the end of the column.
+> > ~~~
+> > =REGEXEXTRACT(G2,"-?\d+\.\d+, -?\d+\.\d+")
+> > ~~~
+> > {: .source}
+> > Latitude and longitude are in decimal degree format and can be positive or negative,
+> > so we start with an optional dash for negative values then use `\d+` for a one or more
+> > digit match followed by a period `\.`. Note we had to escape the period using `\`.
+> > After the period we look for one or more digits `\d+` again followed by a literal comma `,`.
+> > We then have a literal space match followed by an optional dash `-` (there are few `0.0`
+> > latitude/longitudes that are probably errors, but we'd want to retain so we can deal with them).
+> > We then repeat our `\d+\.\d+` we used for the latitude match.
 > {: .solution}
 {: .challenge}
