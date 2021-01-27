@@ -82,6 +82,9 @@ Other useful special characters are:
 - `?` matches when the preceding character appears zero or one time.
 - `{VALUE}` matches the preceding character the number of times defined by VALUE; ranges, say, 1-6, can be specified with the syntax `{VALUE,VALUE}`, e.g. `\d{1,9}` will match any number between one and nine digits in length.
 - `|` means **or**.
+- `(...)` matches expression inside the parentheses,
+defining a group that can later be retrieved, such as for use with replacement,
+using a `\number` reference (backlash followed by group number)
 - `/i` renders an expression case-insensitive (equivalent to `[A-Za-z]`).
 
 So, what are these going to match?
