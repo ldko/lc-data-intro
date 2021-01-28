@@ -88,10 +88,11 @@ The exercises are designed to embed the regex knowledge you learned during this 
 {: .challenge}
 
 > ## How would you match the date format `dd-MM-yyyy` or `dd-MM-yy` at the end of a line only?
+> Hint: Try parentheses to create an optional group in this one.
 >
 > > ## Answer
 > >
-> > `\d{2}-\d{2}-\d{2,4}$`
+> > `\d{2}-\d{2}-\d{2}(\d{2})?$`
 > > 
 > {: .solution}
 {: .challenge}
