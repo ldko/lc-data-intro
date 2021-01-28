@@ -288,12 +288,15 @@ Then test each other on the answers. If you want to check your logic use [regex1
 
 > ## Matching multiple date formats
 > How would you match the date format `dd-MM-yyyy` or `dd-MM-yy` at the end of a line only?
+> Hint: Try parentheses to create an optional group in this one.
 >
 > > ## Solution
 > > ~~~
-> > \d{2}-\d{2}-\d{2,4}$
+> > \d{2}-\d{2}-\d{2}(\d{2})?$
 > > ~~~
-> > Note this will also find strings such as `31-01-198` at the end of a line, so you may wish to check your data and revise the expression to exclude false positives. Depending on your data, you may choose to add word bounding at the start of the expression.
+> > Note this will also find strings such as `31-99-1982` at the end of a line,
+> > so you may wish to check your data and revise the expression to exclude false positives.
+> > Depending on your data, you may choose to add word bounding at the start of the expression.
 > {: .solution}
 {: .challenge}
 
