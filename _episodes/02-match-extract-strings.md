@@ -33,7 +33,8 @@ If you look in the box on the right of the screen, you see that the expression m
 {: .challenge}
 
 > ## Taking any character into consideration
-> If you want to match 'community-led' by adding other regex characters to the expression `community`, what would they be?
+> If you want to match terms that start with 'community', such as 'community-led',
+> by adding other regex metacharacters to the expression `community`, what would they be?
 > > ## Solution
 > >
 > > For instance, `\S+\b`. This would match one or more non-space characters followed by a word boundary. 
